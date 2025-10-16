@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html
+  lang="en"
+  th:replace="~{base :: parent(~{::#content},~{::title},~{::script})}"
+>
+  <head>
+    <title>Login</title>
+  </head>
+  <body>
+    <div id="content">
+      <div class="grid grid-cols-12">
+        <!-- ye div 6 ki space le rhi -->
+         <div class="col-span-4 md:col-span-2 lg:col-span-4"></div>
+        <div class="col-span-12 md:col-span-8 lg:col-span-4 mx-auto">
+          <div
+            class="block p-6 border-t-8 border-red-300 bg-white rounded-xl shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-blue-700 dark:hover:bg-gray-700"
+      >
+      <!-- message here -->
+       <div th:replace="~{message::messageBox}"></div>
+      <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 
+      dark:text-white">Login Here</h5>
+      <p class="font-normal text-gray-700 
+      dark:text-gray-400">Start managing contacts on Smart Contact Manager</p>
+
+      <!-- This is the form -->
+       <div class="text-red-600 text-center" th:if="${param.error}">
+			Invalid username and password.</div>
+		<div class="text-green-600 text-center" th:if="${param.logout}">
+			You have been logged out.</div>
+         <form 
+         method="post"
+         th:action="@{'/authenticate'}"
+
+         class="mt-5"
+         >  
+          <!-- Email -->
+          <div class="mb-3">
+            <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Email</label>
+            <input name="email" type="email" id="email"
+            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500
+             focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white 
+             dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Enter here..." required />
+             <!-- <p  
+            th:if="${#fields.hasErrors('email')}"
+            th:errors="*{email}"
+            class="text-red-600 font-thin px-1">Email is required</p> -->
+          </div>
+          <!-- Password-->
+          <div class="mb-3">
+            <label for="password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Enter New Password</label>
+            <input 
+            name="password"
+            type="password" id="password" 
+            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500
+             focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white 
+             dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Enter your Password" required />
+             <!-- <p  
+            th:if="${#fields.hasErrors('password')}"
+            th:errors="*{password}"
+            class="text-red-600 font-thin px-1">Password is required</p> -->
+          </div>
+          
+          <!-- button -->
+           <div class="mb-5 flex justify-center space-x-3">
+            <button type="submit"
+            class="px-3 py-2 rounded bg-gray-800 text-white dark:bg-blue-600 dark:hover:bg-blue-700 hover:bg-gray-900"
+            >Signup</button>
+            <button type="reset"
+            class="px-3 py-2 rounded bg-red-800 text-white dark:bg-red-600 dark:hover:bg-red-700 hover:bg-red-900"
+            >Reset</button>
+
+           </div>
+         </form>
+
+         <div class="social-buttons-container flex justify-center mt-5">
+          <a class="login-with-google-btn"   th:href="@{'/oauth2/authorization/google'}">Login With Google</a>
+         </div>
+
+      </div>
+      </div>
+      <div class="col-span-4"></div>
+      </div>
+    </div>
+    <script>
+      console.log("Login page");
+    </script>
+  </body>
+</html>

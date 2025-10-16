@@ -1,0 +1,27 @@
+{
+  "name": "smart-concact-manager",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "tailwindcss": "^4.1.14"
+  },
+  "dependencies": {
+    "@tailwindcss/cli": "^4.1.13",
+    "flowbite": "^3.1.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jatinvishwakarma/SCM2.0.git"
+  },
+  "bugs": {
+    "url": "https://github.com/jatinvishwakarma/SCM2.0/issues"
+  },
+  "homepage": "https://github.com/jatinvishwakarma/SCM2.0#readme",
+  "description": ""
+}
