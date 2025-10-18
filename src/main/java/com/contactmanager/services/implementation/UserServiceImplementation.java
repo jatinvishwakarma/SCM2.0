@@ -87,4 +87,10 @@ public class UserServiceImplementation implements UserService{
         return userRepositories.findAll();
     }
 
+    @Override
+    public User getUserByEmail(String email) {
+        return userRepositories.findByEmail(email).orElseThrow(()->
+        new ResourseNotFoundException("User Not Found..."));
+    }
+
 }
