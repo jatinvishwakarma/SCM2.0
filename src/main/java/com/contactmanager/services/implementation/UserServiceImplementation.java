@@ -89,8 +89,7 @@ public class UserServiceImplementation implements UserService{
 
     @Override
     public User getUserByEmail(String email) {
-        return userRepositories.findByEmail(email).orElseThrow(()->
-        new ResourseNotFoundException("User Not Found..."));
+        return userRepositories.findByEmail(email).orElse(null);
     }
 
 }

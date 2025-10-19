@@ -119,7 +119,7 @@
             User userExist=userRepositories.findByEmail(newUser.getEmail()).orElse(null);
             if(userExist==null) userRepositories.save(newUser);
             
-            new DefaultRedirectStrategy().sendRedirect(request, response, "/user/dashboard");
+            new DefaultRedirectStrategy().sendRedirect(request, response, "/user/profile");
         }
 
         // // ✅ Added helper method to safely fetch attributes and avoid NullPointerException

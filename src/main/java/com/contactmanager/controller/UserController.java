@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -28,12 +29,7 @@ public class UserController {
     // user profile page
     @RequestMapping(value="/profile", method=RequestMethod.GET)
     public String userprofile(Model model,  Authentication authentication) {
-        String userName=Helper.getEmailOfLoggedInUser(authentication);
-        User user=userService.getUserByEmail(userName);
-        System.out.println(user.getName());
-        System.out.println(user.getEmail());
         
-        model.addAttribute("loggedInUser", user);
         return "user/profile";
     }
     
