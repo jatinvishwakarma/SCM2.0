@@ -31,7 +31,7 @@
   }
 </style>
   </head>
-  <body class="bg-gray-100 text-gray-900 dark:bg-gray-900 dark:text-white"></body>
+  <body class="bg-gray-100 text-gray-900 dark:bg-gray-900 dark:text-white">
   <!-- commona header -->
 
   <!-- if the user is logged in or not so which navbar is need to be shown -->
@@ -39,18 +39,14 @@
         <div th:replace="~{user/userNavbar :: user-navbar}"></div>
     </div>
 
-    <!-- User is logeed in : sidebar -->
-     <div th:if="${loggedInUser}">  
-        <div th:replace="~{user/sidebar :: sidebar}"></div>
-     </div>
-
+    
     <!-- When user is not logged in -->
      <div th:unless="${loggedInUser}">
       <div data-th-replace="~{navbar :: navbar}"></div>
      </div>
     
     <!-- main content -->
-    <div class="p-4">
+    <div class="p-4 pt-20 ">
       <section data-th-replace="${content}"></section>
     </div>
     <!-- flow bite content -->
